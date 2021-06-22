@@ -1,25 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import MakeGrid from './components/MakeGrid';
+import MakeBlock from './components/MakeBlocks';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+	const [playGroundData , setPlayGroundData] = useState(Array.from(Array(20), () => new Array(10).fill(null)));
+
+	return (
+		<div className="wrap">
+			<div className="header">0</div>
+			<MakeGrid playGroundData={playGroundData}/>
+			<MakeBlock setPlayGroundData={setPlayGroundData}/>
+		</div>
+	);
 }
 
 export default App;
